@@ -1,0 +1,26 @@
+{
+	"name": "",
+	"type": "query alert",
+	"query": "avg(last_30m):aws.vpn.tunnel_data_in{*} > 256000",
+	"message": "",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 256000,
+			"warning": 128000
+		},
+		"notify_audit": false,
+		"on_missing_data": "default",
+		"include_tags": false
+	}
+}
+
+
+{{#is_alert}}The VPN Tunnel State has changed{{/is_alert}}
+
+{{#is _alert}}
+ 1. VPN tunnel state has changed
+ {{/is_alert}}
+
+ {{#is_recovery}}VPN Tunnel state has returned to an Operational state{{/is_recovery}}
+ Notigy: @ops-oncall, More information: [Ops Guide]

@@ -1,0 +1,33 @@
+# The second build stage, creating the final image
+FROM registry.access.redhat.com/ubi8/ubi-minimal
+LABEL maintainer "Chris Collins <collins.christopher@gmail.com>"
+
+# Get the binary from the builder image
+COPY --from=builder /prometheus /prometheus
+
+WORKDIR /prometheus
+
+# Link the binary files into the $PATH
+RUN ln prometheus /bin/
+RUN ln promtool /bin/
+
+# Validate prometheus binary
+RUN prometheus --version
+
+# Add dynamic target (file_sd_config) support to the prometheus config
+# https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config
+RUN echo -e "\n\
+  - job_name: 'dynamic'\n\
+    file_sd_configs:\n\
+    - files:\n\
+      - data/sd_config*.yaml\n\
+      - data/sd_config*.json\n\
+      refresh_interval: 30s\
+" >> prometheus.yml
+
+EXPOSE 9090
+VOLUME ["/prometheus/data"]
+
+ENTRYPOINT ["prometheus"]
+CMD ["--config.file=prometheus.yml"]
+

@@ -1,0 +1,18 @@
+kubectl apply -f mysql-secret.yaml
+kubectl apply -f mysql-pv-pvc.yaml
+kubectl apply -f mysql-statefulset.yaml
+kubectl apply -f mysql-service.yaml
+kubectl apply -f wordpress-pv-pvc.yaml
+kubectl apply -f wordpress-deployment.yaml
+
+
+OR ////
+
+kubectl apply -f directory_name  #### point to directory including all of the above YAMLs
+
+### to get service address of the application
+
+kubectl get svc wordpress-service
+
+
+### REFERENCE: https://engr-syedusmanahmad.medium.com/wordpress-on-kubernetes-cluster-step-by-step-guide-749cb53e27c7

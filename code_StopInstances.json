@@ -1,0 +1,78 @@
+{
+    "eventVersion": "1.10",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAYS2NUSIRTKRNID4GB",
+        "arn": "arn:aws:iam::590183961123:user/hemantkumar",
+        "accountId": "590183961123",
+        "accessKeyId": "ASIAYS2NUSIRYOZRCZT2",
+        "userName": "hemantkumar",
+        "sessionContext": {
+            "attributes": {
+                "creationDate": "2024-11-22T20:50:12Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2024-11-22T23:00:25Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "StopInstances",
+    "awsRegion": "eu-west-1",
+    "sourceIPAddress": "73.155.205.216",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0",
+    "requestParameters": {
+        "instancesSet": {
+            "items": [
+                {
+                    "instanceId": "i-06783b6b76b6a1832"
+                },
+                {
+                    "instanceId": "i-0bf6c2f47b32bd49a"
+                }
+            ]
+        },
+        "force": false
+    },
+    "responseElements": {
+        "requestId": "1bc61488-9f97-48c5-80bc-6763b039a94b",
+        "instancesSet": {
+            "items": [
+                {
+                    "instanceId": "i-06783b6b76b6a1832",
+                    "currentState": {
+                        "code": 64,
+                        "name": "stopping"
+                    },
+                    "previousState": {
+                        "code": 16,
+                        "name": "running"
+                    }
+                },
+                {
+                    "instanceId": "i-0bf6c2f47b32bd49a",
+                    "currentState": {
+                        "code": 64,
+                        "name": "stopping"
+                    },
+                    "previousState": {
+                        "code": 16,
+                        "name": "running"
+                    }
+                }
+            ]
+        }
+    },
+    "requestID": "1bc61488-9f97-48c5-80bc-6763b039a94b",
+    "eventID": "9080a5c9-8291-4670-8aec-2c14d9bf4365",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "590183961123",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ec2.eu-west-1.amazonaws.com"
+    },
+    "sessionCredentialFromConsole": "true"
+}
